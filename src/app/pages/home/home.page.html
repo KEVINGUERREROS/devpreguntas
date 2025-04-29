@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
+<ion-content class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <h2>Temas disponibles</h2>
+      </ion-col>
+
+      <!-- Repetir este bloque para cada tema -->
+      <ion-col size="12" *ngFor="let tema of temas">
+        <ion-card (click)="irANiveles(tema.nombre)">
+          <ion-card-header>
+            <ion-card-title>{{ tema.nombre }}</ion-card-title>
+            <ion-progress-bar [value]="tema.progreso / 100" color="tertiary"></ion-progress-bar>
+          </ion-card-header>
+          <ion-card-content>
+            Progreso: {{ tema.progreso }}%
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/profile">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+  
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Temas</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  
+  <ion-content class="ion-padding">
+    <!-- tarjetas de temas -->
+  </ion-content>
+  
+  <app-footer></app-footer>
+  
+</ion-footer>

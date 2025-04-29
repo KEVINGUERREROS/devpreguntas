@@ -1,20 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-
+import { IonicModule } from '@ionic/angular';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, IonicModule, RouterModule,FooterComponent],
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
-export class HomePage implements OnInit {
+export class HomePage {
+  temas = [
+    { nombre: 'HTML', progreso: 20 },
+    { nombre: 'CSS', progreso: 40 },
+    { nombre: 'JavaScript', progreso: 60 },
+    { nombre: 'Angular', progreso: 10 },
+    { nombre: 'Figma', progreso: 0 },
+  ];
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
+  irANiveles(tema: string) {
+    this.router.navigate(['/quiz'], { queryParams: { tema } });
   }
-
 }

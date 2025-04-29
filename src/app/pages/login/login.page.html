@@ -1,38 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">
-</head>
-<body>
-  <ion-app>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Login</ion-title>
-      </ion-toolbar>
-    </ion-header>
+<ion-content class="login-page">
+  <div class="login-container">
+    <img src="assets/img/logo.png" alt="Logo" class="logo" />
 
-    <ion-content>
-      <div class="login-container">
-        <form id="loginForm">
-          <ion-item>
-            <ion-label position="floating">Correo electrónico</ion-label>
-            <ion-input id="email" type="email" required></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input id="password" type="password" required></ion-input>
-          </ion-item>
-          <ion-button expand="full" id="loginButton">Iniciar sesión</ion-button>
-        </form>
-      </div>
-    </ion-content>
-  </ion-app>
+    <h2>Iniciar Sesión</h2>
 
-  <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic.js"></script>
-  <script src="login.js"></script>
-</body>
-</html>
+    <ion-input
+      placeholder="Correo electrónico"
+      type="email"
+      fill="outline"
+      class="custom-input"
+    ></ion-input>
 
+    <ion-input
+      placeholder="Contraseña"
+      type="password"
+      fill="outline"
+      class="custom-input"
+    ></ion-input>
+
+    <ion-button expand="block" class="login-button">
+      Ingresar
+    </ion-button>
+  </div>
+</ion-content>
